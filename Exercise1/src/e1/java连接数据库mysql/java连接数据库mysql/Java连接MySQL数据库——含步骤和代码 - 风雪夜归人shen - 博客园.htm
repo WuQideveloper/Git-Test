@@ -1,0 +1,285 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0044)http://www.cnblogs.com/centor/p/6142775.html -->
+<!DOCTYPE html PUBLIC "" ""><HTML lang="zh-cn"><HEAD><META content="IE=10.0000" 
+http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8"> 
+<META name="viewport" content="width=device-width, initial-scale=1"> 
+<TITLE>Java连接MySQL数据库——含步骤和代码 - 风雪夜归人shen - 博客园</TITLE> <LINK href="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/blog-common.css" 
+rel="stylesheet" type="text/css"> <LINK id="MainCss" href="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/bundle-summerGarden.css" 
+rel="stylesheet" type="text/css"> <LINK id="mobile-style" href="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/bundle-summerGarden-mobile.css" 
+rel="stylesheet" type="text/css" media="only screen and (max-width: 768px)"> 
+<LINK title="RSS" href="http://www.cnblogs.com/centor/rss" rel="alternate" type="application/rss+xml"> 
+<LINK title="RSD" href="http://www.cnblogs.com/centor/rsd.xml" rel="EditURI" 
+type="application/rsd+xml"> <LINK href="http://www.cnblogs.com/centor/wlwmanifest.xml" 
+rel="wlwmanifest" type="application/wlwmanifest+xml"> 
+<SCRIPT src="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/jquery.js" type="text/javascript"></SCRIPT>
+  
+<SCRIPT type="text/javascript">var currentBlogApp = 'centor', cb_enable_mathjax=false;var isLogined=false;</SCRIPT>
+ 
+<SCRIPT src="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/blog-common.js" type="text/javascript"></SCRIPT>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.9600.16428"></HEAD> 
+<BODY><A name="top"></A> <!--done--> 
+<DIV id="home">
+<DIV id="header">
+<DIV id="blogTitle"><A id="lnkBlogLogo" 
+href="http://www.cnblogs.com/centor/"><IMG id="blogLogo" alt="返回主页" src="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/logo.gif"></A>			
+		<!--done--> 
+<H1><A class="headermaintitle" id="Header1_HeaderTitle" href="http://www.cnblogs.com/centor/">风雪夜归人shen</A></H1>
+<H2></H2></DIV><!--end: blogTitle 博客的标题和副标题 -->	 
+<DIV id="navigator">
+<UL id="navList">
+  <LI><A class="menu" id="blog_nav_sitehome" 
+  href="http://www.cnblogs.com/">博客园</A></LI>
+  <LI><A class="menu" id="blog_nav_myhome" 
+  href="http://www.cnblogs.com/centor/">首页</A></LI>
+  <LI><A href="http://news.cnblogs.com/">新闻</A></LI>
+  <LI><A class="menu" id="blog_nav_newpost" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" 
+  rel="nofollow">新随笔</A></LI>
+  <LI><A class="menu" id="blog_nav_contact" accesskey="9" href="https://msg.cnblogs.com/send/%E9%A3%8E%E9%9B%AA%E5%A4%9C%E5%BD%92%E4%BA%BAshen" 
+  rel="nofollow">联系</A></LI>
+  <LI><A class="menu" id="blog_nav_admin" href="https://i.cnblogs.com/" rel="nofollow">管理</A></LI>
+  <LI><A class="menu" id="blog_nav_rss" 
+  href="http://www.cnblogs.com/centor/rss">订阅</A>	 <A class="aHeaderXML" id="blog_nav_rss_image" 
+  href="http://www.cnblogs.com/centor/rss"><IMG alt="订阅" src="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/xml.gif"></A></LI></UL>
+<DIV class="blogStats">
+<DIV id="blog_stats"><!--done--> 随笔- 18&nbsp; 文章- 0&nbsp; 评论- 7&nbsp; 
+</DIV></DIV><!--end: blogStats -->	 </DIV><!--end: navigator 博客导航栏 --> </DIV><!--end: header 头部 --> 
+<DIV id="main">
+<DIV id="mainContent">
+<DIV class="forFlow">
+<DIV id="post_detail"><!--done--> 
+<DIV id="topics">
+<DIV class="post">
+<H1 class="postTitle"><A class="postTitle2" id="cb_post_title_url" href="http://www.cnblogs.com/centor/p/6142775.html">Java连接MySQL数据库——含步骤和代码</A>
+		 </H1>
+<DIV class="clear"></DIV>
+<DIV class="postBody">
+<DIV id="cnblogs_post_body">
+<P>工具：eclipse</P>
+<P>　　　MySQL5.6</P>
+<P>　　　MySQL连接驱动：mysql-connector-java-5.1.27.jar</P>
+<P>加载驱动：</P>
+<P>　　1. 在工程目录中创建lib文件夹，将下载好的JDBC放到该文件夹下，如下图所示：</P>
+<P>　　<IMG alt="" src="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/987445-20161207201945288-1579667399.png"></P>
+<P>　　2. 右键工程名，在java build path中的Libraries分页中选择Add JARs...，选择刚才添加的JDBC，如下图：</P>
+<P>　　<IMG alt="" src="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/987445-20161207202525819-136335420.png"></P>
+<P>数据包准备：</P>
+<P>　　在数据库sqltestdb中创建如下数据表emp:</P>
+<DIV class="cnblogs_Highlighter">
+<PRE class="brush:sql;gutter:true;">CREATE TABLE emp(
+   empno			INT(4)			PRIMARY KEY,
+   ename			VARCHAR(10),
+   job				VARCHAR(9),
+   hiredate			DATE,
+   sal				FLOAT(7,2)
+) ;
+</PRE></DIV>
+<P>　　添加数据：</P>
+<P>　　<IMG alt="" src="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/987445-20161207203020351-1261142388.png"></P>
+<P>连接数据库并读取数据：</P>
+<P>　　数据库名称：sqltestdb</P>
+<P>　　数据包名称：emp</P>
+<P>　　端口号：3306</P>
+<P>　　用户名：root</P>
+<P>　　密码：root</P>
+<DIV class="cnblogs_code">
+<PRE><SPAN style="color: rgb(0, 128, 128);"> 1</SPAN> <SPAN style="color: rgb(0, 0, 255);">package</SPAN><SPAN style="color: rgb(0, 0, 0);"> sqldemo;
+</SPAN><SPAN style="color: rgb(0, 128, 128);"> 2</SPAN> 
+<SPAN style="color: rgb(0, 128, 128);"> 3</SPAN> <SPAN style="color: rgb(0, 0, 255);">import</SPAN><SPAN style="color: rgb(0, 0, 0);"> java.sql.Connection;
+</SPAN><SPAN style="color: rgb(0, 128, 128);"> 4</SPAN> <SPAN style="color: rgb(0, 0, 255);">import</SPAN><SPAN style="color: rgb(0, 0, 0);"> java.sql.DriverManager;
+</SPAN><SPAN style="color: rgb(0, 128, 128);"> 5</SPAN> <SPAN style="color: rgb(0, 0, 255);">import</SPAN><SPAN style="color: rgb(0, 0, 0);"> java.sql.ResultSet;
+</SPAN><SPAN style="color: rgb(0, 128, 128);"> 6</SPAN> <SPAN style="color: rgb(0, 0, 255);">import</SPAN><SPAN style="color: rgb(0, 0, 0);"> java.sql.SQLException;
+</SPAN><SPAN style="color: rgb(0, 128, 128);"> 7</SPAN> <SPAN style="color: rgb(0, 0, 255);">import</SPAN><SPAN style="color: rgb(0, 0, 0);"> java.sql.Statement;
+</SPAN><SPAN style="color: rgb(0, 128, 128);"> 8</SPAN> 
+<SPAN style="color: rgb(0, 128, 128);"> 9</SPAN> <SPAN style="color: rgb(0, 0, 255);">public</SPAN> <SPAN style="color: rgb(0, 0, 255);">class</SPAN><SPAN style="color: rgb(0, 0, 0);"> main {
+</SPAN><SPAN style="color: rgb(0, 128, 128);">10</SPAN> 
+<SPAN style="color: rgb(0, 128, 128);">11</SPAN>     <SPAN style="color: rgb(0, 0, 255);">public</SPAN> <SPAN style="color: rgb(0, 0, 255);">static</SPAN> <SPAN style="color: rgb(0, 0, 255);">void</SPAN><SPAN style="color: rgb(0, 0, 0);"> main(String[] args) {
+</SPAN><SPAN style="color: rgb(0, 128, 128);">12</SPAN>         <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">声明Connection对象</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">13</SPAN> <SPAN style="color: rgb(0, 0, 0);">        Connection con;
+</SPAN><SPAN style="color: rgb(0, 128, 128);">14</SPAN>         <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">驱动程序名</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">15</SPAN>         String driver = "com.mysql.jdbc.Driver"<SPAN style="color: rgb(0, 0, 0);">;
+</SPAN><SPAN style="color: rgb(0, 128, 128);">16</SPAN>         <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">URL指向要访问的数据库名mydata</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">17</SPAN>         String url = "jdbc:mysql://localhost:3306/sqltestdb"<SPAN style="color: rgb(0, 0, 0);">;
+</SPAN><SPAN style="color: rgb(0, 128, 128);">18</SPAN>         <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">MySQL配置时的用户名</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">19</SPAN>         String user = "root"<SPAN style="color: rgb(0, 0, 0);">;
+</SPAN><SPAN style="color: rgb(0, 128, 128);">20</SPAN>         <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">MySQL配置时的密码</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">21</SPAN>         String password = "123456"<SPAN style="color: rgb(0, 0, 0);">;
+</SPAN><SPAN style="color: rgb(0, 128, 128);">22</SPAN>         <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">遍历查询结果集</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">23</SPAN>         <SPAN style="color: rgb(0, 0, 255);">try</SPAN><SPAN style="color: rgb(0, 0, 0);"> {
+</SPAN><SPAN style="color: rgb(0, 128, 128);">24</SPAN>             <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">加载驱动程序</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">25</SPAN> <SPAN style="color: rgb(0, 0, 0);">            Class.forName(driver);
+</SPAN><SPAN style="color: rgb(0, 128, 128);">26</SPAN>             <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">1.getConnection()方法，连接MySQL数据库！！</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">27</SPAN>             con =<SPAN style="color: rgb(0, 0, 0);"> DriverManager.getConnection(url,user,password);
+</SPAN><SPAN style="color: rgb(0, 128, 128);">28</SPAN>             <SPAN style="color: rgb(0, 0, 255);">if</SPAN>(!<SPAN style="color: rgb(0, 0, 0);">con.isClosed())
+</SPAN><SPAN style="color: rgb(0, 128, 128);">29</SPAN>                 System.out.println("Succeeded connecting to the Database!"<SPAN style="color: rgb(0, 0, 0);">);
+</SPAN><SPAN style="color: rgb(0, 128, 128);">30</SPAN>             <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">2.创建statement类对象，用来执行SQL语句！！</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">31</SPAN>             Statement statement =<SPAN style="color: rgb(0, 0, 0);"> con.createStatement();
+</SPAN><SPAN style="color: rgb(0, 128, 128);">32</SPAN>             <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">要执行的SQL语句</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">33</SPAN>             String sql = "select * from emp"<SPAN style="color: rgb(0, 0, 0);">;
+</SPAN><SPAN style="color: rgb(0, 128, 128);">34</SPAN>             <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">3.ResultSet类，用来存放获取的结果集！！</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">35</SPAN>             ResultSet rs =<SPAN style="color: rgb(0, 0, 0);"> statement.executeQuery(sql);
+</SPAN><SPAN style="color: rgb(0, 128, 128);">36</SPAN>             System.out.println("-----------------"<SPAN style="color: rgb(0, 0, 0);">);
+</SPAN><SPAN style="color: rgb(0, 128, 128);">37</SPAN>             System.out.println("执行结果如下所示:"<SPAN style="color: rgb(0, 0, 0);">);  
+</SPAN><SPAN style="color: rgb(0, 128, 128);">38</SPAN>             System.out.println("-----------------"<SPAN style="color: rgb(0, 0, 0);">);  
+</SPAN><SPAN style="color: rgb(0, 128, 128);">39</SPAN>             System.out.println("姓名" + "\t" + "职称"<SPAN style="color: rgb(0, 0, 0);">);  
+</SPAN><SPAN style="color: rgb(0, 128, 128);">40</SPAN>             System.out.println("-----------------"<SPAN style="color: rgb(0, 0, 0);">);  
+</SPAN><SPAN style="color: rgb(0, 128, 128);">41</SPAN>              
+<SPAN style="color: rgb(0, 128, 128);">42</SPAN>             String job = <SPAN style="color: rgb(0, 0, 255);">null</SPAN><SPAN style="color: rgb(0, 0, 0);">;
+</SPAN><SPAN style="color: rgb(0, 128, 128);">43</SPAN>             String id = <SPAN style="color: rgb(0, 0, 255);">null</SPAN><SPAN style="color: rgb(0, 0, 0);">;
+</SPAN><SPAN style="color: rgb(0, 128, 128);">44</SPAN>             <SPAN style="color: rgb(0, 0, 255);">while</SPAN><SPAN style="color: rgb(0, 0, 0);">(rs.next()){
+</SPAN><SPAN style="color: rgb(0, 128, 128);">45</SPAN>                 <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">获取stuname这列数据</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">46</SPAN>                 job = rs.getString("job"<SPAN style="color: rgb(0, 0, 0);">);
+</SPAN><SPAN style="color: rgb(0, 128, 128);">47</SPAN>                 <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">获取stuid这列数据</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">48</SPAN>                 id = rs.getString("ename"<SPAN style="color: rgb(0, 0, 0);">);
+</SPAN><SPAN style="color: rgb(0, 128, 128);">49</SPAN> 
+<SPAN style="color: rgb(0, 128, 128);">50</SPAN>                 <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">输出结果</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">51</SPAN>                 System.out.println(id + "\t" +<SPAN style="color: rgb(0, 0, 0);"> job);
+</SPAN><SPAN style="color: rgb(0, 128, 128);">52</SPAN> <SPAN style="color: rgb(0, 0, 0);">            }
+</SPAN><SPAN style="color: rgb(0, 128, 128);">53</SPAN> <SPAN style="color: rgb(0, 0, 0);">            rs.close();
+</SPAN><SPAN style="color: rgb(0, 128, 128);">54</SPAN> <SPAN style="color: rgb(0, 0, 0);">            con.close();
+</SPAN><SPAN style="color: rgb(0, 128, 128);">55</SPAN>         } <SPAN style="color: rgb(0, 0, 255);">catch</SPAN><SPAN style="color: rgb(0, 0, 0);">(ClassNotFoundException e) {   
+</SPAN><SPAN style="color: rgb(0, 128, 128);">56</SPAN>             <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">数据库驱动类异常处理</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">57</SPAN>             System.out.println("Sorry,can`t find the Driver!"<SPAN style="color: rgb(0, 0, 0);">);   
+</SPAN><SPAN style="color: rgb(0, 128, 128);">58</SPAN> <SPAN style="color: rgb(0, 0, 0);">            e.printStackTrace();   
+</SPAN><SPAN style="color: rgb(0, 128, 128);">59</SPAN>             } <SPAN style="color: rgb(0, 0, 255);">catch</SPAN><SPAN style="color: rgb(0, 0, 0);">(SQLException e) {
+</SPAN><SPAN style="color: rgb(0, 128, 128);">60</SPAN>             <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);">数据库连接失败异常处理</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">61</SPAN> <SPAN style="color: rgb(0, 0, 0);">            e.printStackTrace();  
+</SPAN><SPAN style="color: rgb(0, 128, 128);">62</SPAN>             }<SPAN style="color: rgb(0, 0, 255);">catch</SPAN><SPAN style="color: rgb(0, 0, 0);"> (Exception e) {
+</SPAN><SPAN style="color: rgb(0, 128, 128);">63</SPAN>             <SPAN style="color: rgb(0, 128, 0);">//</SPAN><SPAN style="color: rgb(0, 128, 0);"> TODO: handle exception</SPAN>
+<SPAN style="color: rgb(0, 128, 128);">64</SPAN> <SPAN style="color: rgb(0, 0, 0);">            e.printStackTrace();
+</SPAN><SPAN style="color: rgb(0, 128, 128);">65</SPAN>         }<SPAN style="color: rgb(0, 0, 255);">finally</SPAN><SPAN style="color: rgb(0, 0, 0);">{
+</SPAN><SPAN style="color: rgb(0, 128, 128);">66</SPAN>             System.out.println("数据库数据成功获取！！"<SPAN style="color: rgb(0, 0, 0);">);
+</SPAN><SPAN style="color: rgb(0, 128, 128);">67</SPAN> <SPAN style="color: rgb(0, 0, 0);">        }
+</SPAN><SPAN style="color: rgb(0, 128, 128);">68</SPAN> <SPAN style="color: rgb(0, 0, 0);">    }
+</SPAN><SPAN style="color: rgb(0, 128, 128);">69</SPAN> 
+<SPAN style="color: rgb(0, 128, 128);">70</SPAN> }</PRE></DIV>
+<P>　　运行结果：</P>
+<DIV class="cnblogs_Highlighter">
+<PRE class="brush:sql;gutter:true;">Succeeded connecting to the Database!
+-----------------
+执行结果如下所示:
+-----------------
+姓名	职称
+-----------------
+李兴华	经理
+张三	总监
+王五	厂长
+齐秦	书记
+张刚	组长
+曹操	财务
+李四	总裁
+数据库数据成功获取！！
+</PRE></DIV>
+<P>增加、删除和修改数据：</P>
+<P>　　增加数据：</P>
+<DIV class="cnblogs_Highlighter">
+<PRE class="brush:java;gutter:true;">            String name;
+            String id;
+             
+            PreparedStatement psql;
+            ResultSet res;
+            //预处理添加数据，其中有两个参数--“？”
+            psql = con.prepareStatement("insert into emp (empno,ename,job,hiredate,sal) "
+            		+ "values(?,?,?,?,?)");
+            psql.setInt(1, 3212);              //设置参数1，创建id为3212的数据
+            psql.setString(2, "王刚");      //设置参数2，name 为王刚
+            psql.setString(3, "总裁");
+            
+            DateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
+            Date myDate2 = dateFormat2.parse("2010-09-13");
+            psql.setDate(4,new java.sql.Date(myDate2.getTime()));
+            psql.setFloat(5, (float) 2000.3);
+            psql.executeUpdate();           //执行更新
+</PRE></DIV>
+<P>　　运行结果：</P>
+<P>　　<IMG alt="" src="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/987445-20161207205316726-253642383.png"></P>
+<P>　　更新数据：</P>
+<DIV class="cnblogs_Highlighter">
+<PRE class="brush:java;gutter:true;"> 　　PreparedStatement psql;
+　　//预处理更新（修改）数据，将王刚的sal改为5000.0
+　　psql = con.prepareStatement("update emp set sal = ? where ename = ?");
+　　psql.setFloat(1,(float) 5000.0);       
+　　psql.setString(2,"王刚");              
+　　psql.executeUpdate();
+</PRE></DIV>
+<P>　　更改结果：</P>
+<P>　　<IMG alt="" src="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/987445-20161207205732976-2118363233.png"></P>
+<P>　　删除数据：</P>
+<DIV class="cnblogs_Highlighter">
+<PRE class="brush:java;gutter:true;">            PreparedStatement psql;
+            //预处理删除数据
+            psql = con.prepareStatement("delete from emp where sal &gt; ?");
+            psql.setFloat(1, 4500);
+            psql.executeUpdate();
+            psql.close();
+</PRE></DIV>
+<P>　　删除结果：</P>
+<P>&nbsp;　　<IMG alt="" src="Java连接MySQL数据库——含步骤和代码%20-%20风雪夜归人shen%20-%20博客园_files/987445-20161207210030835-475214492.png"></P>
+<P>&nbsp;</P></DIV>
+<DIV id="MySignature"></DIV>
+<DIV class="clear"></DIV>
+<DIV id="blog_post_info_block">
+<DIV id="BlogPostCategory"></DIV>
+<DIV id="EntryTag"></DIV>
+<DIV id="blog_post_info"></DIV>
+<DIV class="clear"></DIV>
+<DIV id="post_next_prev"></DIV></DIV></DIV>
+<DIV class="postDesc">posted @ <SPAN id="post-date">2016-12-07 21:02</SPAN> <A 
+href="http://www.cnblogs.com/centor/">风雪夜归人shen</A> 阅读(<SPAN id="post_view_count">...</SPAN>) 
+评论(<SPAN id="post_comment_count">...</SPAN>)  <A href="https://i.cnblogs.com/EditPosts.aspx?postid=6142775" 
+rel="nofollow">编辑</A> <A onclick="AddToWz(6142775);return false;" href="http://www.cnblogs.com/centor/p/6142775.html#">收藏</A></DIV></DIV>
+<SCRIPT type="text/javascript">var allowComments=true,cb_blogId=292735,cb_entryId=6142775,cb_blogApp=currentBlogApp,cb_blogUserGuid='12cf63dd-5d42-e611-9fc1-ac853d9f53cc',cb_entryCreatedDate='2016/12/7 21:02:00';loadViewCount(cb_entryId);</SCRIPT>
+	 </DIV><!--end: topics 文章、评论容器--> </DIV><A name="!comments"></A>
+<DIV id="blog-comments-placeholder"></DIV>
+<SCRIPT type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</SCRIPT>
+ 
+<DIV class="commentform" id="comment_form"><A name="commentform"></A> 
+<DIV id="divCommentShow"></DIV>
+<DIV id="comment_nav"><SPAN id="span_refresh_tips"></SPAN><A id="lnk_RefreshComments" 
+onclick="return RefreshCommentList();" href="javascript:void(0);" clientidmode="Static" 
+runat="server">刷新评论</A><A onclick="return RefreshPage();" href="http://www.cnblogs.com/centor/p/6142775.html#">刷新页面</A><A 
+href="http://www.cnblogs.com/centor/p/6142775.html#top">返回顶部</A></DIV>
+<DIV id="comment_form_container"></DIV>
+<DIV class="ad_text_commentbox" id="ad_text_under_commentbox"></DIV>
+<DIV id="ad_t2"></DIV>
+<DIV id="opt_under_post"></DIV>
+<DIV class="c_ad_block" id="cnblogs_c1"></DIV>
+<DIV id="under_post_news"></DIV>
+<DIV class="c_ad_block" id="cnblogs_c2"></DIV>
+<DIV id="under_post_kb"></DIV>
+<DIV class="c_ad_block" id="HistoryToday"></DIV>
+<SCRIPT type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</SCRIPT>
+ </DIV></DIV><!--end: forFlow -->	 </DIV><!--end: mainContent 主体内容容器-->	 
+<DIV id="sideBar">
+<DIV id="sideBarMain"><!--done--> 
+<DIV class="newsItem">
+<H3 class="catListTitle">公告</H3>
+<DIV id="blog-news"></DIV>
+<SCRIPT type="text/javascript">loadBlogNews();</SCRIPT>
+ </DIV>
+<DIV id="calendar">
+<DIV id="blog-calendar" style="display: none;"></DIV>
+<SCRIPT type="text/javascript">loadBlogDefaultCalendar();</SCRIPT>
+</DIV>
+<DIV id="leftcontentcontainer">
+<DIV id="blog-sidecolumn"></DIV>
+<SCRIPT type="text/javascript">loadBlogSideColumn();</SCRIPT>
+			 </DIV></DIV><!--end: sideBarMain -->	 </DIV><!--end: sideBar 侧边栏容器 -->	 
+<DIV class="clear"></DIV></DIV><!--end: main -->	 
+<DIV class="clear"></DIV>
+<DIV id="footer"><!--done--> Copyright ©2017 风雪夜归人shen	 </DIV><!--end: footer --> 
+</DIV><!--end: home 自定义的最大容器 --> </BODY></HTML>
